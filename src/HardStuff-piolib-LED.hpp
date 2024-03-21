@@ -10,42 +10,29 @@
 namespace LED
 {
     CRGB leds[1];
-    static CRGB lastColor = CRGB(255, 255, 255); // Initialize with a default color
-    static bool isOn = false;                    // Static variable to keep track of the LED's state
+    static CRGB lastColour = CRGB(255, 255, 255); // Initialize with a default colour
 
-    void setLEDRGB(uint32_t color)
+    void setLEDRGB(uint32_t colour)
     {
-        int R = (color >> 8) & 0xFF;  // Extract the red component
-        int G = (color >> 16) & 0xFF; // Extract the green component
-        int B = color & 0xFF;         // Extract the blue component
+        int R = (colour >> 8) & 0xFF;  // Extract the red component
+        int G = (colour >> 16) & 0xFF; // Extract the green component
+        int B = colour & 0xFF;         // Extract the blue component
         leds[0] = CRGB(R, G, B);
-        lastColor = CRGB(R, G, B); // Set the LED color
+        lastColour = CRGB(R, G, B); // Set the LED colour
         FastLED.show();
-        isOn = true;
     }
 
-    bool init(uint32_t start_color = 0xffffff)
+    bool init(uint32_t start_colour = 0xffffff)
     {
         pinMode(LED_GPIO, OUTPUT);
         digitalWrite(LED_GPIO, LOW);
         FastLED.addLeds<NEOPIXEL, LED_GPIO>(leds, 1); // GRB ordering is assumed
-        setLEDRGB(start_color);
+        setLEDRGB(start_colour);
         return true;
     }
 
     void toggleLED()
     {
-        if (isOn)
-        {
-            lastColor = leds[0]; // Turn off the LED and remember its last color
-            leds[0] = CRGB::Black;
-        }
-        else
-        {
-            leds[0] = lastColor; // Restore the LED to its last color
-        }
-        FastLED.show(); // Update the LED
-        isOn = !isOn;   // Toggle the state
+        leds[0] = (leds[0] == lastColour) ? CRGB::Black : lastColour;
     }
-
 }
