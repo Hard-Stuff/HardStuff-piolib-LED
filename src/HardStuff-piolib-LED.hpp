@@ -19,8 +19,9 @@ namespace LED
         int G = (color >> 16) & 0xFF; // Extract the green component
         int B = color & 0xFF;         // Extract the blue component
         leds[0] = CRGB(R, G, B);
-        lastColor = CRGB(R, G, B); // Initialize with a default color
+        lastColor = CRGB(R, G, B); // Set the LED color
         FastLED.show();
+        isOn = true;
     }
 
     bool init(uint32_t start_color = 0xffffff)

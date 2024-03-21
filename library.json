@@ -1,11 +1,11 @@
 {
-	"name": "HardStuff_pio_bricks_LED",
+	"name": "HardStuff-piolib-LED",
 	"version": "0.0.1",
 	"description": "A simple brick for colouring the ESP32's onboard LED.",
 	"keywords": "http",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Matt-Stedman-HardStuff/HardStuff_pio_bricks_LED.git"
+		"url": "https://github.com/Matt-Stedman-HardStuff/HardStuff-piolib-LED.git"
 	},
 	"authors": [
 		{
