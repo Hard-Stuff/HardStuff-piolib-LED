@@ -34,5 +34,6 @@ namespace LED
     void toggleLED()
     {
         leds[0] = (leds[0] == lastColour) ? CRGB::Black : lastColour;
+        FastLED.show();
     }
 }
