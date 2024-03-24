@@ -13,7 +13,7 @@ Hard Stuff bricks are written as namespaces. This is because any given project w
 All functionality and classes are available within the `LED` namespace.
 
 ```cpp
-#include <HardStuff-piolib-LED.hpp>
+#include <Hard-Stuff-Onboard-LED.hpp>
 
 void setup()
 {
