@@ -1,7 +1,7 @@
 {
 	"name": "Onboard-LED",
 	"version": "0.0.1",
-	"description": "A simple brick for colouring the ESP32's onboard LED.",
+	"description": "A simple brick for colouring many ESP32 dev boards' onboard LED.",
 	"keywords": "LED",
 	"repository": {
 		"type": "git",
